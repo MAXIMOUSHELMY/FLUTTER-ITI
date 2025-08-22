@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FLUTTER DAY 3',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xfff9ecc2)),
       ),
       home: const MyHomePage(title: 'HOME'),
     );
@@ -46,10 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xfff9ecc2),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xfff9ecc2),
         title: Text(
           widget.title,
           style: const TextStyle(
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: const Color.fromARGB(255, 7, 3, 3),
         onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(

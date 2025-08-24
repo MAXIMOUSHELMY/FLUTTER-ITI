@@ -8,7 +8,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login"),
-        backgroundColor: Color(0xFFFBEEC1), 
+        backgroundColor: Color(0xFFFBEEC1),
         centerTitle: true,
       ),
       body: Padding(
@@ -39,7 +39,11 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "/homepage");
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    "/homepage",
+                    (route) => false,
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.brown,
@@ -50,7 +54,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: const Text(
                   "continue",
-                  style: TextStyle(fontSize: 22 , color: Colors.white),
+                  style: TextStyle(fontSize: 22, color: Colors.white),
                 ),
               ),
             ),

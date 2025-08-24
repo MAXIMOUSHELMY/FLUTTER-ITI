@@ -1,25 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'profile.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FLUTTER DAY 3',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xfff9ecc2)),
-      ),
-      home: const MyHomePage(title: 'HOME'),
-    );
-  }
-}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -45,59 +28,63 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xfff9ecc2),
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color(0xfff9ecc2),
-        title: Text(
-          widget.title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: const Color(0xfff9ecc2),
+        appBar: AppBar(
+          automaticallyImplyLeading: false, 
+          centerTitle: true,
+          backgroundColor: const Color(0xfff9ecc2),
+          title: Text(
+            widget.title,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
         ),
-      ),
-      body: _selectedIndex == 0
-          ? _buildHome()
-          : _selectedIndex == 4
-              ? const ProfilePage()
-              : Center(
-                  child: Text(
-                    "Page $_selectedIndex",
-                    style: const TextStyle(
-                        fontSize: 25, fontWeight: FontWeight.bold),
+        body: _selectedIndex == 0
+            ? _buildHome()
+            : _selectedIndex == 4
+                ? const ProfilePage()
+                : Center(
+                    child: Text(
+                      "Page $_selectedIndex",
+                      style: const TextStyle(
+                          fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: const Color.fromARGB(255, 7, 3, 3),
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: "Products",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Cart",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt),
-            label: "Orders",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: const Color.fromARGB(255, 7, 3, 3),
+          onTap: _onItemTapped,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_bag),
+              label: "Products",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: "Cart",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt),
+              label: "Orders",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Profile",
+            ),
+          ],
+        ),
       ),
     );
   }

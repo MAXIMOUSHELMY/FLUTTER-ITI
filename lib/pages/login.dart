@@ -16,7 +16,6 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Email or Phone
             TextField(
               decoration: InputDecoration(
                 labelText: "Email or Phone",
@@ -26,8 +25,6 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-
-            // Password
             TextField(
               obscureText: true,
               decoration: InputDecoration(
@@ -38,8 +35,6 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-
-            // Login Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

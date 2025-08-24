@@ -1,4 +1,7 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/homepage.dart';
 import 'package:flutter_application_1/pages/Registration.dart';
 import 'package:flutter_application_1/pages/login.dart';
 import 'package:flutter_application_1/pages/welcome.dart';
@@ -16,8 +19,9 @@ class MyApp extends StatelessWidget {
       initialRoute: "/", 
       routes: {
       "/" : (context) => const Welcomepage(),
-      "/login" : (context) => const Loginpage(),
+      "/login" : (context) => const LoginPage(),
       "/Registration" : (context) =>  Registrationpage(),
+      "/homepage" : (context)=>  const MyHomePage(title: "home",),
       }
     );
   }
